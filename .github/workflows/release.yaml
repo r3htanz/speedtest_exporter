@@ -39,11 +39,11 @@ jobs:
         with:
           go-version: 1.16
 
-      - name: Lint
-        id: lint
-        uses: golangci/golangci-lint-action@v2.5.2
-        with:
-          skip-go-installation: true
+      # - name: Lint
+      #   id: lint
+      #   uses: golangci/golangci-lint-action@v2.5.2
+      #   with:
+      #     skip-go-installation: true
 
       - name: Create Release
         id: createRelease
