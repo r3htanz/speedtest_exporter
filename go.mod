@@ -1,4 +1,4 @@
-module github.com/danopstech/speedtest_exporter
+module github.com/aaronmwelborn/speedtest_exporter
 
 go 1.16
 

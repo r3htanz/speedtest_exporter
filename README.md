@@ -1,21 +1,23 @@
+### Project Forked from [danopstech/speedtest_exporter|(https://github.com/danopstech/speedtest_exporter)]
+
 <p align=center>
-  <img alt=logo src="https://github.com/danopstech/speedtest_exporter/raw/main/.docs/assets/logo.jpg" height=150 />
+  <img alt=logo src="https://github.com/aaronmwelborn/speedtest_exporter/raw/main/.docs/assets/logo.jpg" height=150 />
   <h3 align=center>Speedtest Prometheus Exporter</h3>
 </p>
 
 ---
 A [Speedtest](https://www.speedtest.net) exporter for Prometheus.
 
-[![goreleaser](https://github.com/danopstech/speedtest_exporter/actions/workflows/release.yaml/badge.svg)](https://github.com/danopstech/speedtest_exporter/actions/workflows/release.yaml)
-[![build](https://github.com/danopstech/speedtest_exporter/actions/workflows/build.yaml/badge.svg)](https://github.com/danopstech/speedtest_exporter/actions/workflows/build.yaml)
-[![License](https://img.shields.io/github/license/danopstech/speedtest_exporter)](/LICENSE)
-[![Release](https://img.shields.io/github/release/danopstech/speedtest_exporter.svg)](https://github.com/danopstech/speedtest_exporter/releases/latest)
-[![Docker](https://img.shields.io/docker/pulls/danopstech/speedtest_exporter)](https://hub.docker.com/r/danopstech/speedtest_exporter)
-![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/danopstech/speedtest_exporter)
+[![goreleaser](https://github.com/aaronmwelborn/speedtest_exporter/actions/workflows/release.yaml/badge.svg)](https://github.com/aaronmwelborn/speedtest_exporter/actions/workflows/release.yaml)
+[![build](https://github.com/aaronmwelborn/speedtest_exporter/actions/workflows/build.yaml/badge.svg)](https://github.com/aaronmwelborn/speedtest_exporter/actions/workflows/build.yaml)
+[![License](https://img.shields.io/github/license/aaronmwelborn/speedtest_exporter)](/LICENSE)
+[![Release](https://img.shields.io/github/release/aaronmwelborn/speedtest_exporter.svg)](https://github.com/aaronmwelborn/speedtest_exporter/releases/latest)
+[![Docker](https://img.shields.io/docker/pulls/aaronmwelborn/speedtest_exporter)](https://hub.docker.com/r/aaronmwelborn/speedtest_exporter)
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/aaronmwelborn/speedtest_exporter)
 ![os/arch](https://img.shields.io/badge/os%2Farch-amd64-yellow)
 ![os/arch](https://img.shields.io/badge/os%2Farch-arm64-yellow)
 ![os/arch](https://img.shields.io/badge/os%2Farch-armv7-yellow)
-[![Go Report Card](https://goreportcard.com/badge/github.com/danopstech/speedtest_exporter)](https://goreportcard.com/report/github.com/danopstech/speedtest_exporter)
+[![Go Report Card](https://goreportcard.com/badge/github.com/aaronmwelborn/speedtest_exporter)](https://goreportcard.com/report/github.com/aaronmwelborn/speedtest_exporter)
 
 ## Usage:
 
@@ -37,7 +39,7 @@ Usage of speedtest_exporter
 
 ### Binaries
 
-For pre-built binaries please take a look at the [releases](https://github.com/danopstech/speedtest_exporter/releases).
+For pre-built binaries please take a look at the [releases](https://github.com/aaronmwelborn/speedtest_exporter/releases).
 
 ```bash
 ./speedtest_exporter [flags]
@@ -45,15 +47,15 @@ For pre-built binaries please take a look at the [releases](https://github.com/d
 
 ### Docker
 
-Docker Images can be found at [GitHub Container Registry](https://github.com/orgs/danopstech/packages/container/package/speedtest_exporter) & [Dockerhub](https://hub.docker.com/r/danopstech/speedtest_exporter).
+Docker Images can be found at [GitHub Container Registry](https://github.com/orgs/aaronmwelborn/packages/container/package/speedtest_exporter) & [Dockerhub](https://hub.docker.com/r/aaronmwelborn/speedtest_exporter).
 
 Example:
 ```bash
-docker pull ghcr.io/danopstech/speedtest_exporter:latest
+docker pull ghcr.io/aaronmwelborn/speedtest_exporter:latest
 
 docker run \
   -p 9090:9090 \
-  ghcr.io/danopstech/speedtest_exporter:latest [flags]
+  ghcr.io/aaronmwelborn/speedtest_exporter:latest [flags]
 ```
 
 ### Setup Prometheus to scrape `speedtest_exporter`
@@ -92,5 +94,5 @@ scrape_configs
 https://grafana.com/grafana/dashboards/14336
 
 <p align="center">
-	<img src="https://github.com/danopstech/speedtest_exporter/raw/main/.docs/assets/screenshot.jpg" width="95%">
+	<img src="https://github.com/aaronmwelborn/speedtest_exporter/raw/main/.docs/assets/screenshot.jpg" width="95%">
 </p>
