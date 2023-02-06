@@ -100,18 +100,26 @@ func (e *Exporter) speedtest(testUUID string, ch chan<- prometheus.Metric) bool 
 		return false
 	}
 
-	// returns list of servers in distance order
-	serverList, err := speedtest.FetchServerList(user)
-	if err != nil {
-		log.Errorf("could not fetch server list: %s", err.Error())
-		return false
-	}
-
 	var server *speedtest.Server
 
 	if e.serverID == -1 {
-		server = serverList.Servers[0]
+		// returns list of servers in distance order
+		var serverList []*speedtest.Server
+		serverList, err = speedtest.FetchServers(user)
+
+		if err != nil {
+			log.Errorf("could not fetch server list: %s", err.Error())
+			return false
+		}
+
+		server = serverList[0]
 	} else {
+		serverList, err := speedtest.FetchServers(user)
+		if err != nil {
+			log.Error(err)
+			return false
+		}
+
 		servers, err := serverList.FindServer([]int{e.serverID})
 		if err != nil {
 			log.Error(err)
