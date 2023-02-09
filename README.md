@@ -29,7 +29,7 @@ A [Speedtest](https://www.speedtest.net) exporter for Prometheus.
 $ ./speedtest_exporter --help
 Usage of speedtest_exporter
   -port string
-        listening port to expose metrics on (default "9090")
+        listening port to expose metrics on (default "9877")
   -server_fallback
         If the serverID given is not available, should we fallback to closest available server
   -server_id int
@@ -54,13 +54,13 @@ Example:
 docker pull ghcr.io/aaronmwelborn/speedtest_exporter:latest
 
 docker run \
-  -p 9090:9090 \
+  -p 9877:9877 \
   ghcr.io/aaronmwelborn/speedtest_exporter:latest [flags]
 ```
 
 ### Setup Prometheus to scrape `speedtest_exporter`
 
-Configure [Prometheus](https://prometheus.io/) to scrape metrics from localhost:9090/metrics
+Configure [Prometheus](https://prometheus.io/) to scrape metrics from localhost:9877/metrics
 
 This exporter locks (one concurrent scrape at a time) as it conducts the speedtest when scraped, **remember set scrape interval, and scrap timeout** accordingly as per example.
 
@@ -71,7 +71,7 @@ scrape_configs
       scrape_interval: 60m
       scrape_timeout:  60s
       static_configs:
-        - targets: ['localhost:9090']
+        - targets: ['localhost:9877']
 ...
 ```
 
