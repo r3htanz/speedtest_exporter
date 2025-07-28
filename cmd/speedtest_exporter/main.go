@@ -58,7 +58,7 @@ func main() {
 
 	http.Handle(metricsPath, promhttp.HandlerFor(r, promhttp.HandlerOpts{
 		MaxRequestsInFlight: 1,
-		Timeout:             60 * time.Second,
+		Timeout:             120 * time.Second,
 	}))
 	log.Fatal(http.ListenAndServe(":"+*port, nil))
 }
