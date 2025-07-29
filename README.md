@@ -1,23 +1,24 @@
-### Project Forked from [danopstech/speedtest_exporter|(https://github.com/danopstech/speedtest_exporter)]
+### Project Forked from [aaronmwelborn/speedtest_exporter|(https://github.com/aaronmwelborn/speedtest_exporter)]
 
 <p align=center>
-  <img alt=logo src="https://github.com/aaronmwelborn/speedtest_exporter/raw/main/.docs/assets/logo.jpg" height=150 />
+  <img alt=logo src="https://github.com/r3htanz/speedtest_exporter/raw/main/.docs/assets/logo.jpg" height=150 />
   <h3 align=center>Speedtest Prometheus Exporter</h3>
 </p>
 
 ---
-A [Speedtest](https://www.speedtest.net) exporter for Prometheus.
+This is a modified version of the original [Speedtest](https://www.speedtest.net) exporter, tailored for setups like the Synology DS220+. The original exporter did not work reliably in my environment, as speed tests often take more than one minute to complete. However, the original version times out after one minute and cancels the test.
+This version increases the timeout to two minutes, which works well for my setup.
 
-[![goreleaser](https://github.com/aaronmwelborn/speedtest_exporter/actions/workflows/release.yaml/badge.svg)](https://github.com/aaronmwelborn/speedtest_exporter/actions/workflows/release.yaml)
-[![build](https://github.com/aaronmwelborn/speedtest_exporter/actions/workflows/build.yaml/badge.svg)](https://github.com/aaronmwelborn/speedtest_exporter/actions/workflows/build.yaml)
-[![License](https://img.shields.io/github/license/aaronmwelborn/speedtest_exporter)](/LICENSE)
-[![Release](https://img.shields.io/github/release/aaronmwelborn/speedtest_exporter.svg)](https://github.com/aaronmwelborn/speedtest_exporter/releases/latest)
-[![Docker](https://img.shields.io/docker/pulls/aaronmwelborn/speedtest_exporter)](https://hub.docker.com/r/aaronmwelborn/speedtest_exporter)
-![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/aaronmwelborn/speedtest_exporter)
+[![goreleaser](https://github.com/r3htanz/speedtest_exporter/actions/workflows/release.yaml/badge.svg)](https://github.com/r3htanz/speedtest_exporter/actions/workflows/release.yaml)
+[![build](https://github.com/r3htanz/speedtest_exporter/actions/workflows/build.yaml/badge.svg)](https://github.com/r3htanz/speedtest_exporter/actions/workflows/build.yaml)
+[![License](https://img.shields.io/github/license/r3htanz/speedtest_exporter)](/LICENSE)
+[![Release](https://img.shields.io/github/release/r3htanz/speedtest_exporter.svg)](https://github.com/r3htanz/speedtest_exporter/releases/latest)
+[![Docker](https://img.shields.io/docker/pulls/r3htanz/speedtest_exporter)](https://hub.docker.com/r/r3htanz/speedtest_exporter)
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/r3htanz/speedtest_exporter)
 ![os/arch](https://img.shields.io/badge/os%2Farch-amd64-yellow)
 ![os/arch](https://img.shields.io/badge/os%2Farch-arm64-yellow)
 ![os/arch](https://img.shields.io/badge/os%2Farch-armv7-yellow)
-[![Go Report Card](https://goreportcard.com/badge/github.com/aaronmwelborn/speedtest_exporter)](https://goreportcard.com/report/github.com/aaronmwelborn/speedtest_exporter)
+[![Go Report Card](https://goreportcard.com/badge/github.com/r3htanz/speedtest_exporter)](https://goreportcard.com/report/github.com/r3htanz/speedtest_exporter)
 
 ## Usage:
 
@@ -39,7 +40,7 @@ Usage of speedtest_exporter
 
 ### Binaries
 
-For pre-built binaries please take a look at the [releases](https://github.com/aaronmwelborn/speedtest_exporter/releases).
+For pre-built binaries please take a look at the [releases](https://github.com/r3htanz/speedtest_exporter/releases).
 
 ```bash
 ./speedtest_exporter [flags]
@@ -47,15 +48,15 @@ For pre-built binaries please take a look at the [releases](https://github.com/a
 
 ### Docker
 
-Docker Images can be found at [GitHub Container Registry](https://github.com/orgs/aaronmwelborn/packages/container/package/speedtest_exporter) & [Dockerhub](https://hub.docker.com/r/aaronmwelborn/speedtest_exporter).
+Docker Image can be found at [GitHub Container Registry](https://github.com/orgs/r3htanz/packages/container/package/speedtest_exporter).
 
 Example:
 ```bash
-docker pull ghcr.io/aaronmwelborn/speedtest_exporter:latest
+docker pull ghcr.io/r3htanz/speedtest_exporter:latest
 
 docker run \
   -p 9877:9877 \
-  ghcr.io/aaronmwelborn/speedtest_exporter:latest [flags]
+  ghcr.io/r3htanz/speedtest_exporter:latest [flags]
 ```
 
 ### Setup Prometheus to scrape `speedtest_exporter`
@@ -69,7 +70,7 @@ This exporter locks (one concurrent scrape at a time) as it conducts the speedte
 scrape_configs
     - job_name: speedtest
       scrape_interval: 60m
-      scrape_timeout:  60s
+      scrape_timeout:  120s
       static_configs:
         - targets: ['localhost:9877']
 ...
@@ -94,5 +95,5 @@ scrape_configs
 https://grafana.com/grafana/dashboards/14336
 
 <p align="center">
-	<img src="https://github.com/aaronmwelborn/speedtest_exporter/raw/main/.docs/assets/screenshot.jpg" width="95%">
+	<img src="https://github.com/r3htanz/speedtest_exporter/raw/main/.docs/assets/screenshot.jpg" width="95%">
 </p>
