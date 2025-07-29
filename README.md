@@ -9,11 +9,9 @@
 This is a modified version of the original [Speedtest](https://www.speedtest.net) exporter, tailored for setups like the Synology DS220+. The original exporter did not work reliably in my environment, as speed tests often take more than one minute to complete. However, the original version times out after one minute and cancels the test.
 This version increases the timeout to two minutes, which works well for my setup.
 
-[![goreleaser](https://github.com/r3htanz/speedtest_exporter/actions/workflows/release.yaml/badge.svg)](https://github.com/r3htanz/speedtest_exporter/actions/workflows/release.yaml)
-[![build](https://github.com/r3htanz/speedtest_exporter/actions/workflows/build.yaml/badge.svg)](https://github.com/r3htanz/speedtest_exporter/actions/workflows/build.yaml)
 [![License](https://img.shields.io/github/license/r3htanz/speedtest_exporter)](/LICENSE)
 [![Release](https://img.shields.io/github/release/r3htanz/speedtest_exporter.svg)](https://github.com/r3htanz/speedtest_exporter/releases/latest)
-[![Docker](https://img.shields.io/docker/pulls/r3htanz/speedtest_exporter)](https://hub.docker.com/r/r3htanz/speedtest_exporter)
+[![GHCR](https://img.shields.io/badge/container-ghcr.io%2Fr3htanz%2Fspeedtest__exporter-blue)](https://github.com/users/r3htanz/packages/container/package/speedtest_exporter)
 ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/r3htanz/speedtest_exporter)
 ![os/arch](https://img.shields.io/badge/os%2Farch-amd64-yellow)
 ![os/arch](https://img.shields.io/badge/os%2Farch-arm64-yellow)
