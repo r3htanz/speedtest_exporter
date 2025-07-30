@@ -27,6 +27,11 @@ jobs:
       #   with:
       #     skip-go-installation: true
 
+      - name: Check files before build
+        run: |
+          ls -l go.mod go.sum
+
+
       - name: Build
         uses: goreleaser/goreleaser-action@v4
         with:
