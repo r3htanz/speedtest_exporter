@@ -3,6 +3,10 @@
 # COPY speedtest_exporter /
 
 # 1. Stage: Go Builder (mit Go 1.21 Alpine)
+ARG GOOS=linux
+ARG GOARCH=amd64
+ARG GOARM=7
+
 FROM golang:1.21-alpine AS builder
 
 WORKDIR /app
@@ -14,14 +18,12 @@ RUN go mod download
 # Quellcode kopieren
 COPY . .
 
-# Programm für Linux bauen (statisch, ohne CGO)
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o speedtest_exporter ./cmd/speedtest_exporter
+# Programm für Zielarchitektur bauen, GOARM nur wenn gesetzt (für ARM)
+RUN CGO_ENABLED=0 GOOS=$GOOS GOARCH=$GOARCH GOARM=${GOARM} go build -o speedtest_exporter ./cmd/speedtest_exporter
 
 # 2. Stage: Minimalistisches Runtime-Image (distroless)
 FROM gcr.io/distroless/static
 
-# Binary aus Builder-Stage kopieren
 COPY --from=builder /app/speedtest_exporter /speedtest_exporter
 
-# Binary als EntryPoint setzen
 ENTRYPOINT ["/speedtest_exporter"]
