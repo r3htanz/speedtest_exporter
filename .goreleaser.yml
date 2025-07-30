@@ -23,7 +23,8 @@ builds:
       - 7
 
 archives:
-  - name_template: "{{ .ProjectName }}_v{{ .Version }}_{{ .Os | title }}_{{ .Arch | replace \"amd64\" \"x86_64\" }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
+  - name_template: "{{ .ProjectName }}_v{{ .Version }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}_armv{{ .Arm }}{{ end }}"
+
     files:
       - none*
 
