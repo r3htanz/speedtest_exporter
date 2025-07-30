@@ -39,6 +39,9 @@ dockers:
     dockerfile: Dockerfile
     build_flag_templates:
       - "--platform=linux/amd64"
+    extra_files:
+      - go.mod
+      - go.sum
 
   - image_templates:
       - ghcr.io/r3htanz/{{.ProjectName}}:v{{ .Version }}-arm7
@@ -49,6 +52,9 @@ dockers:
     goarm: 7
     build_flag_templates:
       - "--platform=linux/arm/v7"
+    extra_files:
+      - go.mod
+      - go.sum
 
   - image_templates:
       - ghcr.io/r3htanz/{{.ProjectName}}:v{{ .Version }}-arm64
@@ -58,6 +64,9 @@ dockers:
     goarch: arm64
     build_flag_templates:
       - "--platform=linux/arm64/v8"
+    extra_files:
+      - go.mod
+      - go.sum
 
 docker_manifests:
   # github
