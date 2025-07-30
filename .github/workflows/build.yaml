@@ -39,3 +39,5 @@ jobs:
           args: release --snapshot
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DOCKERHUB_BOT_USERNAME: ${{ secrets.DOCKERHUB_BOT_USERNAME }}
+          DOCKERHUB_BOT_TOKEN: ${{ secrets.DOCKERHUB_BOT_TOKEN }}
