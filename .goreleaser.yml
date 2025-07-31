@@ -21,6 +21,7 @@ builds:
       - arm64
     goarm:
       - 7
+    ldflags: "-s -w"
 
 archives:
   - name_template: "{{ .ProjectName }}_v{{ .Version }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}_armv{{ .Arm }}{{ end }}"
@@ -42,7 +43,7 @@ dockers:
     extra_files:
       - go.mod
       - go.sum
-      - cmd/
+      - cmd/speedtest_exporter/
       - internal/
 
   - image_templates:
@@ -57,7 +58,7 @@ dockers:
     extra_files:
       - go.mod
       - go.sum
-      - cmd/
+      - cmd/speedtest_exporter/
       - internal/
 
   - image_templates:
@@ -71,7 +72,7 @@ dockers:
     extra_files:
       - go.mod
       - go.sum
-      - cmd/
+      - cmd/speedtest_exporter/
       - internal/
 
 docker_manifests:

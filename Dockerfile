@@ -16,7 +16,8 @@ RUN go mod download
 COPY . ./
 
 # Programm für Zielarchitektur bauen, GOARM nur wenn gesetzt (für ARM)
-RUN CGO_ENABLED=0 GOOS=$GOOS GOARCH=$GOARCH GOARM=${GOARM} go build -o speedtest_exporter ./cmd/speedtest_exporter
+RUN CGO_ENABLED=0 GOOS=$GOOS GOARCH=$GOARCH GOARM=${GOARM} \
+  go build -ldflags="-s -w" -o speedtest_exporter ./cmd/speedtest_exporter
 
 # 2. Stage: Minimalistisches Runtime-Image (distroless)
 FROM gcr.io/distroless/static
