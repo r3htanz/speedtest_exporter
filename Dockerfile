@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1.4
-FROM --platform=$BUILDPLATFORM golang:1.21-alpine AS builder
+FROM --platform=$BUILDPLATFORM golang:1.24-alpine AS builder
 
-# 1. Stage: Go Builder (mit Go 1.21 Alpine)
+# 1. Stage: Go Builder (mit Go 1.24 Alpine)
 ARG GOOS=linux
 ARG GOARCH=amd64
 ARG GOARM=7
