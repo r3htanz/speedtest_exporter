@@ -11,6 +11,7 @@ This version increases the timeout to two minutes, which works well for my setup
 
 [![build](https://github.com/r3htanz/speedtest_exporter/actions/workflows/build.yaml/badge.svg)](https://github.com/r3htanz/speedtest_exporter/actions/workflows/build.yaml)
 [![goreleaser](https://github.com/r3htanz/speedtest_exporter/actions/workflows/release.yaml/badge.svg)](https://github.com/r3htanz/speedtest_exporter/actions/workflows/release.yaml)
+[![Code Scanning - Action](https://github.com/r3htanz/speedtest_exporter/actions/workflows/codeql.yml/badge.svg)](https://github.com/r3htanz/speedtest_exporter/actions/workflows/codeql.yml)
 [![License](https://img.shields.io/github/license/r3htanz/speedtest_exporter)](/LICENSE)
 [![Release](https://img.shields.io/github/release/r3htanz/speedtest_exporter.svg)](https://github.com/r3htanz/speedtest_exporter/releases/latest)
 [![GHCR](https://img.shields.io/badge/container-ghcr.io%2Fr3htanz%2Fspeedtest__exporter-blue)](https://github.com/users/r3htanz/packages/container/package/speedtest_exporter)
